@@ -1,13 +1,8 @@
 
-
-
-
-
-
-
-
 import { defineCommand } from "citty";
 import consola from "consola";
+import { colors } from "consola/utils";
+import { components } from "../components";
 
 export default defineCommand({
 	meta: {
@@ -17,11 +12,20 @@ export default defineCommand({
 		name: {
 			type: "string",
 			description: "Component name",
-			alias: "n"
+			alias: "n",
+			required: true,
 		}
 	},
-	async run() {
+	async run({ args }) {
+		const { name } = args
+		if (!components.includes(name)) {
+			consola.error(
+				`${colors.green(name)} component does not exist or has not been implemented yet`
+			)
+		}
 
-		consola.info("Initializing project...");
+
+		console.log(name)
+
 	},
 });

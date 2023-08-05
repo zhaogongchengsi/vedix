@@ -1,0 +1,6 @@
+{ 
+ "unocss": { "config": "uno.config.ts", "css": "src/style/globals.css" },
+ "vsc": false, 
+ "aliases": { "components": "src/components/ui" }, 
+ "type": "ts"
+}

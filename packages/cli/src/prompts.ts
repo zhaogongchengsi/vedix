@@ -31,12 +31,6 @@ export async function createOptions() {
 		},
 		{
 			type: 'text',
-			name: 'aliasComponent',
-			message: "Configure the import alias for components",
-			initial: "@/components/ui",
-		},
-		{
-			type: 'text',
 			name: 'utils',
 			message: "Utils storage path",
 			initial: "src/utils",
