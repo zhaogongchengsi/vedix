@@ -1,0 +1,25 @@
+{
+  "name": "vedix",
+  "version": "0.0.1",
+  "description": "Add components to your project",
+  "main": "./dist/index.mjs",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "npm run build",
+    "release": "npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "bin": {
+    "vedix": "./dist/index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "citty": "^0.1.2",
+    "consola": "^3.2.3"
+  }
+}

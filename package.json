@@ -1,0 +1,56 @@
+{
+  "name": "vedix",
+  "version": "0.0.0",
+  "description": "This is your project description.",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "npm run build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "packageManager": "pnpm@7.12.0",
+  "keywords": [],
+  "author": "zhaogongchengsi <zzhhaon@163.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/zhaogongchengsi",
+  "homepage": "https://github.com/zhaogongchengsi/pkg-name#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaogongchengsi/pkg-name.git"
+  },
+  "bugs": "https://github.com/zhaogongchengsi/pkg-name/issues",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.11.19",
+    "bumpp": "^8.2.1",
+    "esno": "^0.16.3",
+    "rimraf": "^4.1.2",
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.1",
+    "vitest": "^0.28.4"
+  }
+}
