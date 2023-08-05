@@ -37,9 +37,7 @@ export default defineCommand({
         css: globalCssFile,
       },
       vsc: server,
-      aliases: {
-        components: components,
-      },
+      components: components,
       type: typescript ? 'ts' : 'js'
     })
 

@@ -21,10 +21,12 @@
   "dependencies": {
     "citty": "^0.1.2",
     "consola": "^3.2.3",
+    "fs-extra": "^11.1.1",
     "magicast": "^0.2.10",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
     "@types/prompts": "^2.4.4"
   }
 }
