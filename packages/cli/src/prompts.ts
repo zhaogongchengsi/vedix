@@ -1,5 +1,6 @@
+// @ts-ignore
 import prompts from "prompts";
-
+import { colors } from "consola/utils";
 
 export async function createOptions() {
 	return await prompts([
@@ -10,6 +11,15 @@ export async function createOptions() {
 			initial: true,
 			active: 'yes',
 			inactive: 'no'
+		},
+		{
+			type: "select",
+			name: "style",
+			message: `Which ${colors.greenBright('style')} would you like to use?`,
+			choices: ['slate','neutral','stone','zinc'].map((style) => ({
+				title: style,
+				value: style,
+			})),
 		},
 		{
 			type: 'text',

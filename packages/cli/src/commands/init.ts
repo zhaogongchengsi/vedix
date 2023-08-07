@@ -5,6 +5,8 @@ import { existsSync } from 'fs'
 import { join } from 'path'
 import { createOptions } from "../prompts";
 import { CONFIG_NAME, writeConfig } from "../config";
+import { generateColor } from '../../../builder/src'
+import {outputFile} from "fs-extra";
 
 export default defineCommand({
   meta: { name: "init", description: "Initialization" },
@@ -15,11 +17,12 @@ export default defineCommand({
       unocss,
       components,
       utils,
-      server
+      server,
+      style
     } = await createOptions()
     const root = process.cwd()
 
-    const unocssFile = join(root, unocss)
+    // const unocssFile = join(root, unocss)
     const gcf = join(root, globalCssFile)
     const componentsDir = join(root, components)
     const utilsDir = join(root, utils);
@@ -31,6 +34,8 @@ export default defineCommand({
       }
     });
 
+    const colors = generateColor(style, (color) => color.split(" ").join(", "))
+
     await writeConfig(join(root, CONFIG_NAME), {
       unocss: {
         config: unocss,
@@ -40,6 +45,8 @@ export default defineCommand({
       components: components,
       type: typescript ? 'ts' : 'js'
     })
+
+    await outputFile(gcf, colors)
 
   },
 });

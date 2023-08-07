@@ -10,3 +10,4 @@ logs
 node_modules
 playground/vedix.config.json
 playground/src/components/ui
+/playground/src/style/globals.css
