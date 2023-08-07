@@ -23,14 +23,10 @@ export interface Config {
 export const CONFIG_NAME = 'vedix.config.json'
 
 export async function writeConfig(path: string, config: Config) {
-
-	return await writeFile(path, `
-	{ \n "unocss": { "config": "${config.unocss.config}", "css": "${config.unocss.css}" },\n "vsc": ${config.vsc}, \n "components": "${config.components}" , \n "type": "${config.type}"\n}
-	`.trim())
+	return await writeFile(path, JSON.stringify(config, null, 2))
 }
 
-
-export async function readConfig (path: string) :Promise<Config> {
+export async function readConfig(path: string): Promise<Config> {
 	const buf = await readFile(path)
-	return  JSON.parse(buf.toString());
+	return JSON.parse(buf.toString());
 }
