@@ -7,7 +7,7 @@ export  interface Block {
 
 export interface ScriptBlock extends Block {
     attrs:{
-        lang: "ts",
+        lang?: "ts",
         setup: boolean
     }
 }
@@ -20,9 +20,9 @@ export interface StyleBlock extends Block {
 }
 
 export interface VueSfC {
-    template: string
-    script: ScriptBlock
-    style: StyleBlock
+    template?: string
+    script?: ScriptBlock
+    style?: StyleBlock
 }
 
 export  function  createSpace (length: number) :string{
@@ -43,8 +43,8 @@ export  function  createVueStyle ({ content, attrs }: StyleBlock) :string {
 
 export function createVueSfc (opt: VueSfC):string {
     return [
-        createVueScript(opt.script),
-        createVueTemplate(opt.template),
-        createVueStyle(opt.style)
-    ].join(',\n\n')
+        opt.script && createVueScript(opt.script),
+        opt.template && createVueTemplate(opt.template),
+        opt.style &&createVueStyle(opt.style)
+    ].filter(Boolean).join(',\n\n')
 }

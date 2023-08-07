@@ -1,5 +1,6 @@
 
 
 export  interface BuilderOptions {
-    vsr: boolean
+    vsr: boolean,
+    ts: boolean
 }

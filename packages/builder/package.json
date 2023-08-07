@@ -9,7 +9,6 @@
     "prepublishOnly": "npm run build",
     "release": "npm publish",
     "start": "esno src/index.ts",
-    "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],
@@ -17,5 +16,8 @@
   "license": "ISC",
   "devDependencies": {
     "vitest": "^0.28.4"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
   }
 }

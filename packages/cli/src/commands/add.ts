@@ -2,10 +2,13 @@
 import { defineCommand } from "citty";
 import consola from "consola";
 import { colors } from "consola/utils";
-import { componentsMap } from "../components/map";
 import { join } from 'path'
 import { CONFIG_NAME, readConfig } from "../config";
 import { outputFile } from 'fs-extra';
+import { components, createComponent } from '../../../builder/src'
+import {existsSync} from "fs";
+// @ts-ignore
+import prompts from "prompts";
 
 export default defineCommand({
 	meta: {
@@ -21,7 +24,7 @@ export default defineCommand({
 	},
 	async run({ args }) {
 		const { name } = args
-		if (!componentsMap.has(name)) {
+		if (!components.has(name)) {
 			consola.error(
 				`${colors.green(name)} component does not exist or has not been implemented yet`
 			)
@@ -30,10 +33,25 @@ export default defineCommand({
 		const root = process.cwd()
 		const config = await readConfig(join(root, CONFIG_NAME))
 
-		const componentPath = join(config.components, `${name}.vue`)
-		const buildComponent = componentsMap.get(name)!
+		const componentPath = join(root ,config.components, `${name}.vue`)
 
-		await outputFile(componentPath, await buildComponent(config))
+		if (existsSync(componentPath)) {
+			const { isOverlay  } =  await prompts({
+				type: "toggle",
+				message: colors.yellowBright(`Whether the ${name} component already exists or not overrides`),
+				name: 'isOverlay',
+				initial: true,
+				active: colors.red('yes'),
+				inactive: colors.cyan('no')
+			})
 
+			if (!isOverlay) {
+				process.exit(1)
+			}
+		}
+
+		const buildComponent = components.get(name)!
+
+		await outputFile(componentPath, createComponent(buildComponent))
 	},
 });
