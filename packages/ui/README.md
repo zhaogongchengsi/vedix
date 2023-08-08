@@ -3,8 +3,9 @@
 ### Components
 
 1. [x] Button
-2. [ ] Alert
-3. [ ] Navigation Menu
-4. [ ] Menu Bar
-5. [ ] Avatar
-6. [ ] Accordion
+2. [x] Popover
+3. [ ] Alert
+4. [ ] Navigation Menu
+5. [ ] Menu Bar
+6. [ ] Avatar
+7. [ ] Accordion

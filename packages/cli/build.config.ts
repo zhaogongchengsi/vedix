@@ -1,5 +1,4 @@
 import { defineBuildConfig } from 'unbuild'
-import { resolve } from 'path'
 
 export default defineBuildConfig({
   entries: [
