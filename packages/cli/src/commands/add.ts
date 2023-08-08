@@ -14,16 +14,20 @@ export default defineCommand({
 	meta: {
 		name: "add", description: "Add components to your project",
 	},
-	args: {
-		name: {
-			type: "string",
-			description: "Component name",
-			alias: "n",
-			required: true,
-		}
-	},
-	async run({ args }) {
-		const { name } = args
+	// args: {
+	// },
+	async run() {
+
+		const { name } =  await prompts({
+			type: "select",
+			name: "name",
+			message: colors.cyanBright(` Which components would you like to add? › Space to select. Return to submit.`),
+			choices: Array.from(components.keys()).map((style) => ({
+				title: style,
+				value: style,
+			})),
+		})
+
 		if (!components.has(name)) {
 			consola.error(
 				`${colors.green(name)} component does not exist or has not been implemented yet`
@@ -33,7 +37,9 @@ export default defineCommand({
 		const root = process.cwd()
 		const config = await readConfig(join(root, CONFIG_NAME))
 
-		const componentPath = join(root ,config.components, `${name}.vue`)
+		const buildComponent = components.get(name)!
+
+		const componentPath = join(root ,config.components, buildComponent.file)
 
 		if (existsSync(componentPath)) {
 			const { isOverlay  } =  await prompts({
@@ -50,8 +56,6 @@ export default defineCommand({
 			}
 		}
 
-		const buildComponent = components.get(name)!
-
-		await outputFile(componentPath, createComponent(buildComponent))
+		await outputFile(componentPath, createComponent(buildComponent.content))
 	},
 });
