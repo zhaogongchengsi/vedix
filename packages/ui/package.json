@@ -1,6 +1,5 @@
 {
   "name": "vedix-ui",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -8,14 +7,13 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "paly": "storybook dev -p 6006",
+    "paly": "storybook dev -p 6789",
     "build:paly": "storybook build"
   },
   "dependencies": {
-    "@element-plus/components": "^0.0.5",
-    "@element-plus/hooks": "^0.0.5",
     "@popperjs/core": "^2.11.8",
     "@unocss/reset": "^0.54.1",
+    "@vue/runtime-core": "^3.3.4",
     "@vue/shared": "^3.3.4",
     "@vueuse/components": "^10.3.0",
     "@vueuse/core": "^10.3.0",

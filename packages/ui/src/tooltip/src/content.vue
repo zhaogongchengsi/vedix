@@ -54,7 +54,7 @@ import { TOOLTIP_INJECTION_KEY } from './constants'
 import { useTooltipContentProps } from './content'
 
 defineOptions({
-  name: 'ElTooltipContent',
+  name: 'TooltipContent',
   inheritAttrs: false,
 })
 

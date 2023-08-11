@@ -18,4 +18,4 @@ export type ElTooltipInjectionContext = {
 }
 
 export const TOOLTIP_INJECTION_KEY: InjectionKey<ElTooltipInjectionContext> =
-  Symbol('elTooltip')
+  Symbol('vedixTooltip')

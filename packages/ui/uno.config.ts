@@ -1,20 +1,17 @@
 // uno.config.ts
 import {
-	defineConfig,
-	presetAttributify,
-	presetIcons,
-	presetTypography,
-	presetUno,
-	presetWebFonts,
-	transformerDirectives,
-	transformerVariantGroup
+    defineConfig,
+    presetAttributify,
+    presetIcons,
+    presetTypography,
+    presetUno,
+    presetWebFonts,
+    transformerDirectives,
+    transformerVariantGroup
 } from 'unocss'
 
 export default defineConfig({
-	shortcuts: [
-		// ...
-	],
-	theme: {
+    theme: {
         colors: {
             border: "hsl(var(--border))",
             input: "hsl(var(--input))",
@@ -73,16 +70,16 @@ export default defineConfig({
             "accordion-up": "accordion-up 0.2s ease-out",
         },
     },
-	presets: [
-		presetUno(),
-		presetAttributify(),
-		presetIcons(),
-		presetTypography(),
-		presetWebFonts({
-			fonts: {
-				// ...
-			}
-		})
-	],
-	transformers: [transformerDirectives(), transformerVariantGroup()]
+    presets: [
+        presetUno(),
+        presetAttributify(),
+        presetIcons(),
+        presetTypography(),
+        presetWebFonts({
+            fonts: {
+                // ...
+            }
+        })
+    ],
+    transformers: [transformerDirectives(), transformerVariantGroup()]
 })

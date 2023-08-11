@@ -27,7 +27,7 @@ import { whenTrigger } from './utils'
 import type { OnlyChildExpose } from '../../slot'
 
 defineOptions({
-  name: 'ElTooltipTrigger',
+  name: 'TooltipTrigger',
 })
 
 const props = defineProps(useTooltipTriggerProps)

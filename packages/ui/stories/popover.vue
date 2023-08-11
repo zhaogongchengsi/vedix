@@ -20,6 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-import Popper, { PopperTrigger, PopperContent } from '../popper'
+import Popper, { PopperTrigger, PopperContent } from '../src/popper'
 import Button from '../components/button.vue'
 </script>

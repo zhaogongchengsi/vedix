@@ -46,7 +46,7 @@ import TooltipContent from './content.vue'
 import type { PopperInstance } from '../../popper'
 
 defineOptions({
-  name: 'ElTooltip',
+  name: 'Tooltip',
 })
 
 const props = defineProps(useTooltipProps)
