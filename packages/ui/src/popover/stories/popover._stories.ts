@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import MyPage from './popover.vue';
+import Page from './page.vue';
 
 const meta = {
   title: 'Example/Popover',
-  component: MyPage,
+  component: Page,
   render: () => ({
-    components: { MyPage },
-    template: '<my-page />',
+    components: { Page },
+    template: '<Page />',
   }),
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof MyPage>;
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

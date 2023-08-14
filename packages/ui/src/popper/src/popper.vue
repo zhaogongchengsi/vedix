@@ -3,24 +3,22 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, ref } from 'vue'
+import { provide, ref } from 'vue'
 import { POPPER_INJECTION_KEY } from './constants'
-import { popperProps } from './popper'
 
 import type { Instance as PopperInstance } from '@popperjs/core'
-import type { ElPopperInjectionContext } from './constants'
+import type { PopperInjectionContext } from './constants'
 
 defineOptions({
   name: 'Popper',
   inheritAttrs: false,
 })
-const props = defineProps(popperProps)
+
 
 const triggerRef = ref<HTMLElement>()
 const popperInstanceRef = ref<PopperInstance>()
 const contentRef = ref<HTMLElement>()
 const referenceRef = ref<HTMLElement>()
-const role = computed(() => props.role)
 
 const popperProvides = {
   /**
@@ -39,11 +37,7 @@ const popperProvides = {
    * @description popper reference element
    */
   referenceRef,
-  /**
-   * @description role determines how aria attributes are distributed
-   */
-  role,
-} as ElPopperInjectionContext
+} as PopperInjectionContext
 
 defineExpose(popperProvides)
 

@@ -1,10 +1,11 @@
 <template>
 	<div class="w-full h-screen flex flex-col items-center justify-center">
 		<Collapse v-model="activeNames" class="w-200 border">
-			<CollapseItem name="1" item-content-class="border-t">
-				<template #head="{ click }">
+			<collapse-item name="1" item-content-class="border-t">
+				<template #head="{ click, active }">
 					<div class="py-1 px-2 text-xl" @click="click">
 						Hello
+						<span>{{ active ? 'active' : 'not active' }}</span>
 					</div>
 				</template>
 				<div class="p-3">
@@ -14,7 +15,7 @@
 						voluptatem! Nihil, optio.
 					</p>
 				</div>
-			</CollapseItem>
+			</collapse-item>
 		</Collapse>
 	</div>
 </template>
@@ -24,16 +25,3 @@ import { ref } from 'vue'
 
 const activeNames = ref(['1'])
 </script>
-
-<style>
-/* .collapse-transition-enter-active,
-.collapse-transition-leave-active {
-  transition: height 0.3s ease;
-}
-
-.collapse-transition-enter,
-.collapse-transition-leave-to {
-  height: 0;
-  overflow: hidden;
-} */
-</style>

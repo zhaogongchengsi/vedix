@@ -9,7 +9,7 @@ import { popperArrowProps } from './arrow'
 
 defineOptions({
   name: 'PopperArrow',
-  inheritAttrs: false,
+  inheritAttrs: true,
 })
 
 const props = defineProps(popperArrowProps)

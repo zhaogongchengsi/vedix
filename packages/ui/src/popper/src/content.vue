@@ -1,6 +1,6 @@
 <template>
-  <div ref="contentRef" v-bind="contentAttrs" :style="contentStyle" :class="contentClass" tabindex="-1"
-    @mouseenter="(e) => $emit('mouseenter', e)" @mouseleave="(e) => $emit('mouseleave', e)">
+  <div ref="contentRef" v-bind="contentAttrs" tabindex="-1" @mouseenter="(e) => $emit('mouseenter', e)"
+    @mouseleave="(e) => $emit('mouseleave', e)">
     <focus-trap :trapped="trapped" :trap-on-focus-in="true" :focus-trap-el="contentRef" :focus-start-el="focusStartRef"
       @focus-after-trapped="onFocusAfterTrapped" @focus-after-released="onFocusAfterReleased" @focusin="onFocusInTrap"
       @focusout-prevented="onFocusoutPrevented" @release-requested="onReleaseRequested">
@@ -35,6 +35,7 @@ import type { WatchStopHandle } from 'vue'
 
 defineOptions({
   name: 'PopperContent',
+  inheritAttrs: true
 })
 
 const emit = defineEmits(popperContentEmits)
@@ -44,7 +45,6 @@ const props = defineProps(popperContentProps)
 const {
   focusStartRef,
   trapped,
-
   onFocusAfterReleased,
   onFocusAfterTrapped,
   onFocusInTrap,
@@ -59,7 +59,6 @@ const {
   ariaModal,
   arrowStyle,
   contentAttrs,
-  contentClass,
   contentStyle,
   updateZIndex,
 } = usePopperContentDOM(props, {

@@ -9,7 +9,6 @@ export { PopperArrow, PopperTrigger, PopperContent, Popper }
 
 export default Popper
 
-export * from './src/popper'
 export * from './src/trigger'
 export * from './src/content'
 export * from './src/arrow'

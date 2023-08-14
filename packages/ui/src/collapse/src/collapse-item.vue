@@ -1,7 +1,7 @@
 <template>
   <div>
     <div role="tab" :class="props.itemHeadClass" :aria-expanded="isActive" :tabindex="disabled ? -1 : 0">
-      <slot name="head" :click="handleHeaderClick" :focus="handleFocus" :blur="handleBlur" />
+      <slot name="head" :click="handleHeaderClick" :focus="handleFocus" :blur="handleBlur" :active="isActive" />
     </div>
     <collapse-transition :name="props.transitionName">
       <div v-show="isActive" role="tabpanel">
@@ -43,7 +43,6 @@ const collapse = inject(collapseContextKey)
 
 const focusing = ref(false)
 const isClick = ref(false)
-const id = ref(generateId())
 
 const isActive = computed(() => collapse?.activeNames.value.includes(props.name))
 

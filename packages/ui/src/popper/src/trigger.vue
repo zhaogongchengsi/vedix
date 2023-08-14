@@ -1,13 +1,11 @@
 <template>
-  <only-child v-if="!virtualTriggering" v-bind="$attrs" :aria-controls="ariaControls" :aria-describedby="ariaDescribedby"
-    :aria-expanded="ariaExpanded" :aria-haspopup="ariaHaspopup">
+  <only-child v-if="!virtualTriggering" v-bind="$attrs">
     <slot />
   </only-child>
 </template>
 
 <script lang="ts" setup>
-import { computed, inject, onBeforeUnmount, onMounted, watch } from 'vue'
-import { isNil } from 'lodash-unified'
+import { inject, onBeforeUnmount, onMounted, watch } from 'vue'
 import { unrefElement } from '@vueuse/core'
 
 import { OnlyChild } from '../../slot'
@@ -26,31 +24,9 @@ defineOptions({
 
 const props = defineProps(popperTriggerProps)
 
-const { role, triggerRef } = inject(POPPER_INJECTION_KEY, undefined)!
+const { triggerRef } = inject(POPPER_INJECTION_KEY, undefined)!
 
 useForwardRef(triggerRef)
-
-const ariaControls = computed<string | undefined>(() => {
-  return ariaHaspopup.value ? props.id : undefined
-})
-
-const ariaDescribedby = computed<string | undefined>(() => {
-  if (role && role.value === 'tooltip') {
-    return props.open && props.id ? props.id : undefined
-  }
-  return undefined
-})
-
-const ariaHaspopup = computed<string | undefined>(() => {
-  if (role && role.value !== 'tooltip') {
-    return role.value
-  }
-  return undefined
-})
-
-const ariaExpanded = computed<string | undefined>(() => {
-  return ariaHaspopup.value ? `${props.open}` : undefined
-})
 
 let virtualTriggerAriaStopWatch: WatchStopHandle | undefined = undefined
 
@@ -96,22 +72,6 @@ onMounted(() => {
               )
           }
         })
-        virtualTriggerAriaStopWatch = watch(
-          [ariaControls, ariaDescribedby, ariaHaspopup, ariaExpanded],
-          (watches) => {
-            ;[
-              'aria-controls',
-              'aria-describedby',
-              'aria-haspopup',
-              'aria-expanded',
-            ].forEach((key, idx) => {
-              isNil(watches[idx])
-                ? el.removeAttribute(key)
-                : el.setAttribute(key, watches[idx]!)
-            })
-          },
-          { immediate: true }
-        )
       }
       if (isElement(prevEl)) {
         ;[

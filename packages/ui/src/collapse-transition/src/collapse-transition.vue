@@ -4,7 +4,6 @@
   </transition>
 </template>
 <script lang="ts" setup>
-import { useNamespace } from '../../hooks'
 import type { RendererElement } from '@vue/runtime-core'
 
 defineOptions({

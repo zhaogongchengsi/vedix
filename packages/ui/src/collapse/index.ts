@@ -9,6 +9,5 @@ export {
 }
 
 export * from './src/collapse'
-export * from './src/collapse-item'
 export * from './src/constants'
 export type { CollapseInstance, CollapseItemInstance } from './src/instance'
