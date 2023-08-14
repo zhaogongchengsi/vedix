@@ -67,6 +67,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@floating-ui/dom':
+        specifier: ^1.5.1
+        version: 1.5.1
       '@floating-ui/vue':
         specifier: ^1.0.2
         version: 1.0.2(vue@3.3.4)
