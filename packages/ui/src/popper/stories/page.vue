@@ -5,7 +5,6 @@ import { ref } from 'vue'
 
 const open = ref(false)
 
-
 </script>
 
 <template>
@@ -18,7 +17,7 @@ const open = ref(false)
 			</Trigger>
 
 			<teleport to="body">
-				<Content v-if="open" class="p-2 w-100 bg-slate-700 rounded-md text-white" :offset="5">
+				<Content v-if="open" :y="10" class="p-2 w-100 bg-slate-700 rounded-md text-white" :offset="5">
 					<p>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique deleniti, repellat eum
 						dolore

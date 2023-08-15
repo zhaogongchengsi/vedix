@@ -11,7 +11,7 @@ const popper = inject(POPPER_INJECTION_KEY)
 </script>
 
 <template>
-	<div :ref="popper?.triggerRef">
+	<div :ref="popper?.reference">
 		<slot />
 	</div>
 </template>

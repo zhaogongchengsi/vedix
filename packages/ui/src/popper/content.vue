@@ -1,34 +1,43 @@
 <script setup lang='ts'>
-import { inject, unref, ref } from 'vue'
+import { computed, inject, unref } from 'vue'
 import { POPPER_INJECTION_KEY } from './constants';
-
-// @ts-ignore
-import { useFloating, autoUpdate, offset, flip, shift } from '@floating-ui/vue';
+import { usePopper, Middleware } from "../hooks";
+import { isNumber } from '../utils'
 
 defineOptions({
 	inheritAttrs: true,
 })
 
-const props = withDefaults(defineProps<{ tag?: string, offset?: number }>(), {
+const props = withDefaults(defineProps<{ tag?: string, x?: number | string, y?: number | string }>(), {
 	tag: 'div',
-	offset: 0,
+	x: 0,
+	y: 0,
 })
 
 const popper = inject(POPPER_INJECTION_KEY)
 
-const middleware = ref([offset(props.offset), flip(), shift()]);
+const offset  = computed(() => {
+  return {
+    x: isNumber(props.x) ? props.x : Number.parseInt(props.x as string),
+    y: isNumber(props.y) ? props.y : Number.parseInt(props.y as string)
+  }
+})
 
-const { floatingStyles } = useFloating(popper?.triggerRef, popper?.contentRef, {
-	placement: unref(popper?.placement),
-	strategy: unref(popper?.strategy),
-	whileElementsMounted: autoUpdate,
-	middleware: middleware,
-});
+const middlewares: Middleware[] = [
+  {
+    name: 'offset',
+    options: {
+      offset: [unref(offset).x, unref(offset).y],
+    },
+  }
+]
+
+const { floatingStyles }  = usePopper(popper!, middlewares)
 
 </script>
 
 <template>
-	<component :is="props.tag" :ref="popper?.contentRef" :style="floatingStyles">
+	<component :is="props.tag" :ref="popper?.floating" :style="floatingStyles">
 		<slot />
 	</component>
 </template>
