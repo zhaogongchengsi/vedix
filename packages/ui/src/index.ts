@@ -1,5 +1,3 @@
-import button from './components/button.vue'
-
-export {
-    button
-}
+export * from './popper/index'
+export * from './collapse/index'
+export * from './collapse-transition/index'

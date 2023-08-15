@@ -14,8 +14,6 @@ export default defineCommand({
 	meta: {
 		name: "add", description: "Add components to your project",
 	},
-	// args: {
-	// },
 	async run() {
 
 		const { name } =  await prompts({

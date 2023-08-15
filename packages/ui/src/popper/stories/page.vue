@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { Popper, Content, Trigger } from '../index'
-import Button from '../../../components/button.vue';
+import Button from '../../../../components/src/button.vue';
 import { ref } from 'vue'
 
 const open = ref(false)

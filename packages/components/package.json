@@ -1,0 +1,36 @@
+{
+  "name": "vedix-components",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "play": "storybook dev -p 6006",
+    "build": "storybook build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.2.3",
+    "@storybook/addon-interactions": "7.2.3",
+    "@storybook/addon-links": "7.2.3",
+    "@storybook/blocks": "7.2.3",
+    "@storybook/testing-library": "0.2.0",
+    "@storybook/vue3": "7.2.3",
+    "@storybook/vue3-vite": "7.2.3",
+    "@unocss/reset": "^0.54.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vueuse/components": "^10.3.0",
+    "@vueuse/core": "^10.3.0",
+    "class-variance-authority": "^0.7.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "storybook": "7.2.3",
+    "unocss": "^0.54.1",
+    "vedix-ui": "workspace:^",
+    "vite": "^4.4.5",
+    "vue": "^3.3.4"
+  }
+}

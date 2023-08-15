@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<{
   itemHeadClass?: string | string[]
   name?: string | number
   disabled?: boolean,
-  transitionName: string | string[]
+  transitionName?: string
 }>(), {
   itemContentClass: '',
   itemHeadClass: '',

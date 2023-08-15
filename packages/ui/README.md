@@ -1,11 +1,9 @@
 # vedix-ui
 
+Some basic components, only a little css
+
 ### Components
 
-1. [x] Button
-2. [x] Popover
-3. [ ] Alert
-4. [ ] Navigation Menu
-5. [ ] Menu Bar
-6. [ ] Avatar
-7. [ ] Accordion
+1. [x] Collapse
+2. [x] Collapse-transition
+3. [x] Popper

@@ -1,14 +1,24 @@
 {
   "name": "vedix-ui",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
     "play": "storybook dev -p 6789",
-    "build:paly": "storybook build"
+    "build:paly": "storybook build",
+    "prepublishOnly": "npm run build",
+    "release": "npm publish"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": "./dist/es/index.js",
+    "style": "./dist/es/style.css",
+    "require": "./dist/lib/index.js"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.5.1",
