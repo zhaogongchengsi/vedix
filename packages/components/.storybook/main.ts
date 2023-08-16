@@ -1,6 +1,7 @@
 import {mergeConfig} from "vite";
 import UnoCSS from "unocss/vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import vedixPreset from 'vedix-unocss-preset'
 
 const config = {
     stories: [

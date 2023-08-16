@@ -124,6 +124,9 @@ importers:
       vedix-ui:
         specifier: workspace:^
         version: link:../ui
+      vedix-unocss-preset:
+        specifier: workspace:^
+        version: link:../preset
       vite:
         specifier: ^4.4.5
         version: 4.4.8(@types/node@18.17.3)
@@ -131,7 +134,11 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4
 
-  packages/preset: {}
+  packages/preset:
+    devDependencies:
+      unbuild:
+        specifier: ^1.2.1
+        version: 1.2.1
 
   packages/ui:
     dependencies:

@@ -30,6 +30,7 @@
     "storybook": "7.2.3",
     "unocss": "^0.54.1",
     "vedix-ui": "workspace:^",
+    "vedix-unocss-preset": "workspace:^",
     "vite": "^4.4.5",
     "vue": "^3.3.4"
   }

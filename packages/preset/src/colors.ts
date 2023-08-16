@@ -1,3 +1,5 @@
+import {PresetVedixOptions} from "./index";
+
 export const slate = {
     light: {
         background: "0 0% 100%",
@@ -185,18 +187,23 @@ export const colors = new Map([
     ['zinc', zinc]
 ])
 
-export function transform(color: Record<string, string>, format :(color:string) => string = color => color): string {
+export function transform(color: Record<string, string>, options: PresetVedixOptions, format: (color: string) => string = color => color): string {
     const token: string[] = []
     for (const [key, value] of Object.entries(color)) {
         token.push(`--${key}: ${format(value)}`)
     }
-    return token.join(';\n\n')
+    return token.join(';\n')
 }
 
-export function generateColor(name: 'slate' | 'neutral' | 'stone' | 'zinc', format ?:(color:string) => string) {
+export function generateColor(options: PresetVedixOptions, format ?: (color: string) => string) {
+    const name = options.theme || "slate"
     const color = colors.get(name)
     if (!color) {
-        throw  new Error(`${name} color does not exist`)
+        throw new Error(`${name} color does not exist`)
     }
-    return `\n:root{\n${transform(color?.light,format)}\n}\n\n.dark{\n${transform(color?.dark,format)}\n}\n`
+
+    const darkSelector = options.darkSelector || '.dark'
+    const lightSelector = options.lightSelector || ":root"
+
+    return `\n${lightSelector}{\n${transform(color?.light, options, format)}\n}\n\n ${darkSelector}{\n${transform(color?.dark, options, format)}\n}\n`
 }
