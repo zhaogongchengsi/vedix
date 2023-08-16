@@ -1,8 +1,7 @@
 {
   "name": "vedix-unocss-preset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use with unocss",
-  "main": "index.js",
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
@@ -10,6 +9,14 @@
     "release": "npm publish",
     "start": "esno src/index.ts"
   },
+  "packageManager": "pnpm@7.12.0",
+  "funding": "https://github.com/zhaogongchengsi/vedix/packages/preset",
+  "homepage": "https://github.com/zhaogongchengsi/vedix/packages/preset",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaogongchengsi/vedix.git"
+  },
+  "bugs": "https://github.com/zhaogongchengsi/vedix/issues",
   "files": [
     "dist"
   ],
@@ -17,9 +24,22 @@
     "unocss"
   ],
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs",
-    "types": "./dist/index.d.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
   },
   "author": "zhaozunhong <zzh1586169624@163.com>",
   "license": "ISC",

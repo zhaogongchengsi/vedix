@@ -32,7 +32,7 @@ export interface PresetVedixOptions {
     extend?: boolean;
 }
 
-export default function presetVedix(options: PresetVedixOptions) {
+export default function presetVedix(options: PresetVedixOptions = {theme: "slate", extend: true, darkSelector: '.dark', lightSelector: ":root"}) {
 
     const extend = options.extend || true;
 
