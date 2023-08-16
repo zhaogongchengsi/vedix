@@ -29,6 +29,7 @@ const config = {
                 UnoCSS({
                     presets: [
                         presetUno(),
+                        // @ts-ignore
                         vedixPreset()
                     ]
                 }),
