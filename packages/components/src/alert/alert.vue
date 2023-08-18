@@ -1,43 +1,42 @@
 <script setup lang="ts">
-
-import {cva, VariantProps} from "class-variance-authority";
+import type { VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 
 defineOptions({
-  name: "Alert",
-  inheritAttrs: true
+  name: 'Alert',
+  inheritAttrs: true,
 })
 
-const alertVariants = cva(
-    "flex items-start",
-    {
-      variants: {
-        variant: {
-          default:
-              "default",
-          destructive:
-              "destructive",
-        }
-      },
-      defaultVariants: {
-        variant: "default",
-      },
-    }
+withDefaults(
+  defineProps<{ variant?: alertProps['variant'] }>(),
+  {
+    variant: 'default',
+  },
 )
 
-type alertProps = VariantProps<typeof alertVariants>;
+const alertVariants = cva(
+  'flex items-start',
+  {
+    variants: {
+      variant: {
+        default:
+              'default',
+        destructive:
+              'destructive',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  },
+)
 
-withDefaults(
-    defineProps<{ variant?: alertProps["variant"] }>(),
-    {
-      variant: "default",
-    }
-);
-
+type alertProps = VariantProps<typeof alertVariants>
 </script>
 
 <template>
   <transition name="feat">
-    <div :class="alertVariants({variant})">
+    <div :class="alertVariants({ variant })">
       <slot />
     </div>
   </transition>

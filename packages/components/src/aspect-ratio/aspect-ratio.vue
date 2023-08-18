@@ -2,22 +2,21 @@
 import { OkuAspectRatio } from '@oku-ui/aspect-ratio'
 
 defineOptions({
-	inheritAttrs: true,
-	name: 'AspectRatio'
+  name: 'AspectRatio',
+  inheritAttrs: true,
 })
-
-interface aspectRatioProps {
-	ratio: number,
-}
 
 defineProps<aspectRatioProps>()
 
+interface aspectRatioProps {
+  ratio: number
+}
 </script>
 
 <template>
-	<OkuAspectRatio :ratio="ratio">
-		<slot />
-	</OkuAspectRatio>
+  <OkuAspectRatio :ratio="ratio">
+    <slot />
+  </OkuAspectRatio>
 </template>
 
 <style></style>

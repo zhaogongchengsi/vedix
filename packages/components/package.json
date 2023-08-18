@@ -5,19 +5,21 @@
   "private": false,
   "main": "dist/index.mjs",
   "scripts": {
-    "prepublishOnly": "pnpm gc",
+    "prepublishOnly": "pnpm build",
     "release": "npm publish",
-    "gc": "esno scripts/build.ts dist",
+    "build": "esno scripts/build.ts dist",
     "play": "storybook dev -p 6006",
     "build:play": "storybook build"
   },
   "files": [
-    "dist"
+    "dist",
+    "types.d.ts"
   ],
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./types.d.ts"
     }
   },
   "keywords": [],

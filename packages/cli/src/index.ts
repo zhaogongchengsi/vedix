@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 
-import { defineCommand, runMain } from "citty";
-import init from './commands/init';
-import add from './commands/add';
+import { defineCommand, runMain } from 'citty'
+import init from './commands/init'
+import add from './commands/add'
 
 const main = defineCommand({
-	meta: {
-		name: "vedix",
-		version: "0.0.1",
-		description: "Add components to your project",
-	},
-	subCommands: {
-		init,
-		add
-	}
-});
+  meta: {
+    name: 'vedix',
+    version: '0.0.1',
+    description: 'Add components to your project',
+  },
+  subCommands: {
+    init,
+    add,
+  },
+})
 
-runMain(main);
+runMain(main)

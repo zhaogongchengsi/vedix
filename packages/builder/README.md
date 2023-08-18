@@ -1,3 +1,0 @@
-# vedix builder
-
-### Under development
