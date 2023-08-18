@@ -14,5 +14,5 @@
       "type":"string"
     }
   },
-  "required": ["file"]
+  "required": ["file", "name"]
 }

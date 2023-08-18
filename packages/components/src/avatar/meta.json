@@ -1,6 +1,7 @@
 {
   "$schema": "../schema.json",
-  "name": "avatar",
+  "name": "Avatar",
   "private": false,
-  "file": "./avatar.vue"
+  "file": "./avatar.vue",
+  "dependence": ["@oku-ui/avatar"]
 }
