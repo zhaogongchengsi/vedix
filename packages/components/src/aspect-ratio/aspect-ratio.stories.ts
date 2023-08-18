@@ -10,7 +10,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args: { ratio: number }) => ({
+  render: (args: any) => ({
     components: { aspectRatio },
     setup() {
       return { args }

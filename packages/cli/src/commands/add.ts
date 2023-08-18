@@ -6,8 +6,8 @@ import consola from 'consola'
 import { colors } from 'consola/utils'
 import { outputFile } from 'fs-extra'
 import prompts from 'prompts'
-import { CONFIG_NAME, readConfig } from '../config'
 import components from 'vedix-components'
+import { CONFIG_NAME, readConfig } from '../config'
 
 export default defineCommand({
   meta: {
