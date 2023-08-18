@@ -1,0 +1,6 @@
+{
+  "$schema": "../schema.json",
+  "name": "avatar",
+  "private": false,
+  "file": "./avatar.vue"
+}

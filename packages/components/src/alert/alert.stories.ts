@@ -1,10 +1,10 @@
 
 import type { Meta, StoryObj } from '@storybook/vue3';
-import Alert from '../src/alert.vue';
+import Alert from './alert.vue';
 
 const meta = {
     component: Alert,
-    title: "Alert"
+    title: "example/alert"
 } satisfies Meta<typeof Alert>;
 
 export default meta;

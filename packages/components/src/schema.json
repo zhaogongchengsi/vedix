@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "private": {
+      "type": "boolean"
+    },
+    "dependence": {
+      "type": "array"
+    },
+    "file": {
+      "type":"string"
+    }
+  },
+  "required": ["file"]
+}

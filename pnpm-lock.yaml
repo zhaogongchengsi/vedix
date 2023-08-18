@@ -70,6 +70,12 @@ importers:
 
   packages/components:
     devDependencies:
+      '@oku-ui/aspect-ratio':
+        specifier: ^0.2.3
+        version: 0.2.3(vue@3.3.4)
+      '@oku-ui/avatar':
+        specifier: ^0.2.3
+        version: 0.2.3(vue@3.3.4)
       '@storybook/addon-essentials':
         specifier: 7.2.3
         version: 7.2.3(react-dom@18.2.0)(react@18.2.0)
@@ -121,9 +127,6 @@ importers:
       unocss:
         specifier: ^0.54.1
         version: 0.54.1(postcss@8.4.27)(rollup@3.27.2)(vite@4.4.8)
-      vedix-ui:
-        specifier: workspace:^
-        version: link:../ui
       vedix-unocss-preset:
         specifier: workspace:^
         version: link:../preset
@@ -2207,6 +2210,64 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: true
+
+  /@oku-ui/aspect-ratio@0.2.3(vue@3.3.4):
+    resolution: {integrity: sha512-Heg6gJa/1QANkLmbOypVqimQHvyCJNj2PELF5jFJASGXRhK5liU98z0834A9ZJiO//lrBwn+PRleCuVI/L+5PA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      vue: ^3.3.4
+    dependencies:
+      '@oku-ui/primitive': 0.2.1(vue@3.3.4)
+      '@oku-ui/utils': 0.2.1
+      vue: 3.3.4
+    dev: true
+
+  /@oku-ui/avatar@0.2.3(vue@3.3.4):
+    resolution: {integrity: sha512-S6FQzPYz8028ZbUkg2mJafv4Vaptm/deDTlZuqho0IpY9T4xKxcmHnQQgnwOWTIb3L8uPazC519jCISmLQjORQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      vue: ^3.3.4
+    dependencies:
+      '@oku-ui/primitive': 0.2.1(vue@3.3.4)
+      '@oku-ui/provide': 0.2.1(vue@3.3.4)
+      '@oku-ui/use-composable': 0.2.1(vue@3.3.4)
+      '@oku-ui/utils': 0.2.1
+      vue: 3.3.4
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+    dev: true
+
+  /@oku-ui/primitive@0.2.1(vue@3.3.4):
+    resolution: {integrity: sha512-0bzqSJPvh2vOAgbO2I64pI4YKy4/02E6Brwavoi4iwzPrBQWKPPevVvS6lF8vIGVJJ+yiamYIpzuVXM2U/CRYg==}
+    peerDependencies:
+      vue: ^3.3.4
+    dependencies:
+      vue: 3.3.4
+    dev: true
+
+  /@oku-ui/provide@0.2.1(vue@3.3.4):
+    resolution: {integrity: sha512-1iv3c5ZW8W0FIeCM2rDWM4lqs9OQ+se83HQ91851CjbQkgyv2L1LcRF8IfAZw3DcEejPKk8IZJriRqiRu0v5jQ==}
+    peerDependencies:
+      vue: ^3.3.4
+    dependencies:
+      vue: 3.3.4
+    dev: true
+
+  /@oku-ui/use-composable@0.2.1(vue@3.3.4):
+    resolution: {integrity: sha512-jWLz88Gu1C6v0qCf51kihApEAzsYD8+eL7UT2gUmPP97PSWX1/Xnj7WddJ8rmlXw5rNblvPEhNx2QV9qm57oGA==}
+    peerDependencies:
+      vue: ^3.3.4
+    dependencies:
+      '@oku-ui/utils': 0.2.1
+      '@vueuse/core': 10.3.0(vue@3.3.4)
+      vue: 3.3.4
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+    dev: true
+
+  /@oku-ui/utils@0.2.1:
+    resolution: {integrity: sha512-TskbEDHJSRAanm/ISyj8xFFeeCkR4Copk6GsGKZdkPxV2CeIqTckiveNrBtreob1ki8ZI1QFIWKUnzkcIdUQug==}
     dev: true
 
   /@one-ini/wasm@0.1.1:

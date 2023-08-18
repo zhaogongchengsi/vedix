@@ -1,14 +1,14 @@
-import {mergeConfig} from "vite";
+import { mergeConfig } from "vite";
 import UnoCSS from "unocss/vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { presetUno } from 'unocss'
-// @ts-ignore
 import vedixPreset from 'vedix-unocss-preset'
 
 const config = {
     stories: [
-        "../stories/**/*.mdx",
-        "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+        "../src/**/*.mdx",
+        "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+        "!../**/node_modules/**/*",
     ],
     addons: [
         "@storybook/addon-links",

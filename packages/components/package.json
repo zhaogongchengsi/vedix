@@ -2,16 +2,18 @@
   "name": "vedix-components",
   "version": "0.0.1",
   "description": "",
-  "private": true,
+  "private": false,
   "main": "index.js",
   "scripts": {
     "play": "storybook dev -p 6006",
-    "build": "storybook build"
+    "build:play": "storybook build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@oku-ui/aspect-ratio": "^0.2.3",
+    "@oku-ui/avatar": "^0.2.3",
     "@storybook/addon-essentials": "7.2.3",
     "@storybook/addon-interactions": "7.2.3",
     "@storybook/addon-links": "7.2.3",
@@ -29,7 +31,6 @@
     "react-dom": "18.2.0",
     "storybook": "7.2.3",
     "unocss": "^0.54.1",
-    "vedix-ui": "workspace:^",
     "vedix-unocss-preset": "workspace:^",
     "vite": "^4.4.5",
     "vue": "^3.3.4"
