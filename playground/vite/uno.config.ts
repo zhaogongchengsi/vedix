@@ -5,6 +5,7 @@ import {
   presetUno,
   presetWebFonts,
 } from 'unocss'
+import parseVedix from 'vedix-unocss-preset'
 
 export default defineConfig({
   shortcuts: [
@@ -25,5 +26,6 @@ export default defineConfig({
         mono: 'DM Mono',
       },
     }),
+    parseVedix(),
   ],
 })

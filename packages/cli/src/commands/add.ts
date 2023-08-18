@@ -18,9 +18,9 @@ export default defineCommand({
       type: 'select',
       name: 'name',
       message: colors.cyanBright(' Which components would you like to add? › Space to select. Return to submit.'),
-      choices: Array.from(components.keys()).map(style => ({
-        title: style,
-        value: style,
+      choices: Array.from(components.keys()).map(name => ({
+        title: name,
+        value: name,
       })),
     })
 
@@ -30,7 +30,7 @@ export default defineCommand({
     const root = process.cwd()
     const config = await readConfig(join(root, CONFIG_NAME))
 
-    const { code, file } = components.get(name)!
+    const { code, file, dependence } = components.get(name)!
 
     const componentPath = join(root, config.components, file)
 
@@ -49,5 +49,19 @@ export default defineCommand({
     }
 
     await outputFile(componentPath, code)
+
+    if (!dependence || dependence.length < 1)
+      return
+
+    const { install } = await prompts({
+      type: 'toggle',
+      message: colors.yellowBright(`Whether to download or not depends on [ ${colors.greenBright(dependence.join(','))} ]`),
+      name: 'install',
+      initial: true,
+      active: colors.red('yes'),
+      inactive: colors.cyan('no'),
+    })
+    if (!install)
+      return
   },
 })

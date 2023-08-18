@@ -9,6 +9,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AspectRatio: typeof import('./src/components/ui/aspect-ratio.vue')['default']
+    Avatar: typeof import('./src/components/ui/avatar.vue')['default']
+    Button: typeof import('./src/components/ui/button.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheCounter: typeof import('./src/components/TheCounter.vue')['default']

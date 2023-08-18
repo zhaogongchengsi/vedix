@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises'
 import process from 'node:process'
 import { globby } from 'globby'
 import { outputFile } from 'fs-extra'
+import { normalize } from 'pathe'
+import { consola } from 'consola'
 
 interface Meta {
   name: string
@@ -16,11 +18,13 @@ const cwd = process.cwd()
 const [dir] = process.argv.slice(2);
 
 (async () => {
+  consola.start('build start ...')
+
   const metas = await readMeta()
 
   const list = await readComponentFile(metas)
 
-  const exports: { name: string; dependence?: string[], file: string }[] = []
+  const exportList: { name: string; dependence?: string[]; file: string }[] = []
   const indexC = []
   const indexM = []
 
@@ -29,26 +33,28 @@ const [dir] = process.argv.slice(2);
 
   for (const { meta, content } of list) {
     if (!meta.name || /[-,^\d]/gm.test(meta.name)) {
-      console.error(`error: ${meta.name} contains illegal string`)
+      consola.error(`error: ${meta.name} contains illegal string`)
       continue
     }
 
     const { cjs, mjs } = createFileInfo(meta)
 
-    exports.push({ name: meta.name, dependence: meta.dependence, file: parse(meta.file).base })
+    exportList.push({ name: meta.name, dependence: meta.dependence, file: parse(meta.file).base })
 
-    indexM.push(`import ${meta.name} from "${relative(distIndexMjs, mjs).substring(3)}";`)
-    indexC.push(`const ${meta.name} = require("${relative(distIndexCjs, cjs).substring(3)}");`)
+    indexM.push(`import ${meta.name} from "./${normalize(relative(distIndexMjs, mjs)).substring(3)}";`)
+    indexC.push(`const ${meta.name} = require("./${normalize(relative(distIndexCjs, cjs)).substring(3)}");`)
     await outputFile(mjs, createMjsCode(content))
     await outputFile(cjs, createCjsCode(content))
   }
 
-  const code = exports.map(({ name, dependence, file }) => {
-    return `  [${name} ,{ file: '${file}', code: ${name} ${dependence ? `, dependence: [${dependence.map(dep => `'${dep}'`).join(',')}]` : ''}}]`
+  const code = exportList.map(({ name, dependence, file }) => {
+    return `  ['${name}' ,{ file: '${file}', code: ${name} ${dependence ? `, dependence: [${dependence.map(dep => `'${dep}'`).join(',')}]` : ''}}]`
   }).join(',\n')
 
   await outputFile(distIndexMjs, `${indexM.join('\n')}\n\n\n` + `export default new Map([\n${code}\n])`)
   await outputFile(distIndexCjs, `${indexC.join('\n')}\n\n\n` + `module.exports = new Map([\n${code}\n])`)
+
+  consola.success('build success')
 })()
 
 function createMjsCode(code: string) {

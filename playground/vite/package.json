@@ -1,9 +1,10 @@
 {
   "private": true,
   "packageManager": "pnpm@8.6.0",
+  "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite --port 3333 --open",
+    "dev": "vite --port 3456 --open",
     "lint": "eslint .",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
@@ -33,6 +34,8 @@
     "unplugin-auto-import": "^0.16.4",
     "unplugin-vue-components": "^0.25.0",
     "unplugin-vue-macros": "^2.2.1",
+    "vedix": "workspace:^",
+    "vedix-unocss-preset": "workspace:^",
     "vite": "^4.3.9",
     "vite-plugin-pages": "^0.31.0",
     "vitest": "^0.31.4",

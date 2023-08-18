@@ -10,10 +10,6 @@ export interface Aliases {
 }
 
 export interface Config {
-  type: 'js' | 'ts'
-  unocss: Unocss
-  vsc: boolean
-  // utils: string,
   components: string
 }
 
