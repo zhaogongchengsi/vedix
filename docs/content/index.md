@@ -1,8 +1,15 @@
+---
+title: Primitives - Vue Primitives
+layout: page
+main:
+  fluid: false
+---
+
 ::block-hero
 ---
 cta:
   - Get started
-  - /get-started:
+  - /
 secondary:
   - Open on GitHub →
   - https://github.com/nuxtlabs/docus

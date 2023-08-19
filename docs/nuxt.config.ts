@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@pinia/nuxt',
-    '@nuxtjs/color-mode',
+    // '@nuxtjs/color-mode',
   ],
 
   docus: {
@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@unocss/reset/tailwind.css',
+    // '@unocss/reset/tailwind.css',
   ],
 
   colorMode: {
@@ -33,11 +33,6 @@ export default defineNuxtConfig({
       options: {
         target: 'esnext',
       },
-    },
-    prerender: {
-      crawlLinks: false,
-      routes: ['/'],
-      ignore: ['/hi'],
     },
   },
 
