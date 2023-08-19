@@ -1,0 +1,6 @@
+{
+  "$schema": "../schema.json",
+  "name": "Progress",
+  "file": "./progress.vue",
+  "dependence": ["@oku-ui/progress"]
+}

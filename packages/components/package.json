@@ -28,6 +28,8 @@
   "devDependencies": {
     "@oku-ui/aspect-ratio": "^0.2.3",
     "@oku-ui/avatar": "^0.2.3",
+    "@oku-ui/label": "^0.2.3",
+    "@oku-ui/progress": "^0.2.3",
     "@storybook/addon-essentials": "7.2.3",
     "@storybook/addon-interactions": "7.2.3",
     "@storybook/addon-links": "7.2.3",
