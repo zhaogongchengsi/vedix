@@ -7,6 +7,7 @@ import { colors } from 'consola/utils'
 import { outputFile } from 'fs-extra'
 import prompts from 'prompts'
 import components from 'vedix-components'
+import { addDependency } from 'nypm'
 import { CONFIG_NAME, readConfig } from '../config'
 
 export default defineCommand({
@@ -28,6 +29,8 @@ export default defineCommand({
       consola.error(`${colors.green(name)} component does not exist or has not been implemented yet`)
 
     const root = process.cwd()
+
+    // TODO: 配置文件不存在会报错
     const config = await readConfig(join(root, CONFIG_NAME))
 
     const { code, file, dependence } = components.get(name)!
@@ -63,5 +66,11 @@ export default defineCommand({
     })
     if (!install)
       return
+
+    await addDependency(dependence.join(' '), {
+      cwd: root,
+      silent: true,
+      workspace: 'playground/vite',
+    })
   },
 })
