@@ -3,8 +3,8 @@ import { type LabelRef, OkuLabel } from '@oku-ui/label'
 import { ref } from 'vue'
 
 defineOptions({
+  name: 'VLabel',
   inheritAttrs: true,
-  name: 'VLabel'
 })
 
 const labelRef = ref<LabelRef>()
@@ -15,5 +15,7 @@ defineExpose({
 </script>
 
 <template>
-  <OkuLabel ref="labelRef" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" > <slot /> </OkuLabel>
+  <OkuLabel ref="labelRef" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+    <slot />
+  </OkuLabel>
 </template>

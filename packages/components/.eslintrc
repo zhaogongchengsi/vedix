@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "@antfu"
+  ],
+  "rules": {
+    "antfu/no-const-enum": "off",
+    "antfu/named-tuple-spacing": "off",
+    "antfu/no-import-node-modules-by-path": "off"
+  }
+}
