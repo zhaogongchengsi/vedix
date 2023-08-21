@@ -9,6 +9,7 @@
     "preview": "nuxi preview",
     "lint": "eslint ."
   },
+  "packageManager": "pnpm@8.6.0",
   "devDependencies": {
     "@nuxt-themes/docus": "^1.14.6",
     "@nuxt/devtools": "^0.8.0",
