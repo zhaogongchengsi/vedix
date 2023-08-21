@@ -3,15 +3,9 @@
   "version": "0.0.0",
   "description": "This is your project description.",
   "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
-    "prepublishOnly": "npm run build",
-    "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "build:doc": "pnpm --filter vedix-docs run build"
   },
   "packageManager": "pnpm@7.12.0",
   "keywords": [],
