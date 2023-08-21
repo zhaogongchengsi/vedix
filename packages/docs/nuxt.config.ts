@@ -8,5 +8,10 @@ export default defineNuxtConfig({
   },
   devServer:{
     port: 4567,
-  }
+  },
+  experimental: {
+    payloadExtraction: false,
+    inlineSSRStyles: false,
+    renderJsonPayloads: true,
+  },
 })
