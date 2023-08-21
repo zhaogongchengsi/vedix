@@ -10,10 +10,11 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "^1.11.1",
+    "@nuxt-themes/docus": "^1.14.6",
+    "@nuxt/devtools": "^0.8.0",
     "@nuxt/eslint-config": "^0.1.1",
-    "eslint": "^8.40.0",
-    "nuxt": "3.3.3"
+    "eslint": "^8.47.0",
+    "nuxt": "^3.6.5"
   },
   "dependencies": {
     "mdast-util-to-string": "^4.0.0"
