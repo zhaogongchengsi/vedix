@@ -23,6 +23,26 @@ export default defineConfig({
 })
 ```
 
+## Theme
+
+```ts
+// uno.config.ts
+import { neutral, slate, stone, zinc } from 'vedix-unocss-preset'
+
+export default defineConfig({
+    presets: [presetUno(), vedixPreset({ theme: slate })]
+})
+```
+
+```html
+<html>
+<head>...</head>
+<body class="slate-theme" >...</body>
+<!--dark-->
+<!--<body class="slate-theme .dark" >...</body>-->
+</html>
+```
+
 ## License
 
 [MIT](./LICENSE) License © 2023 [zhaogongchengsi](https://github.com/zhaogongchengsi)

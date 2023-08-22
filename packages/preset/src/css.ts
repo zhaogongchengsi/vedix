@@ -1,8 +1,8 @@
-import {PresetVedixOptions} from "./index";
-import {generateColor} from "./colors";
+import { generateColor } from './colors'
+import type { PresetVedixOptions } from './index'
 
-export  function genCss (options: PresetVedixOptions) {
-    return generateColor(options, (color) => {
-        return color.split(" ").join(", ")
-    })
+export function genCss(options: PresetVedixOptions) {
+  return generateColor(options, (color) => {
+    return color.split(' ').join(', ')
+  })
 }
