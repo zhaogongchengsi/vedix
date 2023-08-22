@@ -2,6 +2,7 @@ export default defineNuxtConfig({
   extends: '@nuxt-themes/docus',
   modules: [
     '@nuxt/devtools',
+    '@unocss/nuxt',
   ],
   devtools: {
     enabled: true,

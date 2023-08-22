@@ -4,13 +4,19 @@ export default defineAppConfig({
     description: 'The best place to start your documentation.',
     image: 'https://user-images.githubusercontent.com/904724/185365452-87b7ca7b-6030-4813-a2db-5e65c785bf88.png',
     socials: {
-      example: {
-        label: 'example',
-        icon: 'carbon:dashboard',
-        href: '/examples'
-      },
       github: 'https://github.com/zhaogongchengsi/vedix',
     },
+    nav: [
+      { text: 'Guide', link: '/guide' },
+      {
+        text: 'Dropdown Menu',
+        items: [
+          { text: 'Item A', link: '/item-1' },
+          { text: 'Item B', link: '/item-2' },
+          { text: 'Item C', link: '/item-3' }
+        ]
+      }
+    ],
     aside: {
       level: 0,
       exclude: []
