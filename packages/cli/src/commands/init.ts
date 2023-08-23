@@ -16,7 +16,7 @@ export default defineCommand({
         type: 'text',
         name: 'components',
         message: 'Component storage path',
-        initial: 'src/components/ui',
+        initial: 'src/2.components/ui',
       },
     ])
     const root = process.cwd()

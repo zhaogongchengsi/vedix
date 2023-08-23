@@ -8,7 +8,7 @@ const main = defineCommand({
   meta: {
     name: 'vedix',
     version: '0.0.1',
-    description: 'Add components to your project',
+    description: 'Add 2.components to your project',
   },
   subCommands: {
     init,

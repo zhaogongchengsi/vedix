@@ -12,13 +12,13 @@ import { CONFIG_NAME, readConfig } from '../config'
 
 export default defineCommand({
   meta: {
-    name: 'add', description: 'Add components to your project',
+    name: 'add', description: 'Add 2.components to your project',
   },
   async run() {
     const { name } = await prompts({
       type: 'select',
       name: 'name',
-      message: colors.cyanBright(' Which components would you like to add? › Space to select. Return to submit.'),
+      message: colors.cyanBright(' Which 2.components would you like to add? › Space to select. Return to submit.'),
       choices: Array.from(components.keys()).map(name => ({
         title: name,
         value: name,
