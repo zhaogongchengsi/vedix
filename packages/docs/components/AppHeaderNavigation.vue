@@ -3,7 +3,7 @@ const route = useRoute()
 const { navBottomLink } = useContentHelpers()
 const { config } = useDocus()
 
-const hasNavigation = computed(() => !!config.value.aside?.level)
+const hasNavigation = computed(() => (!!config.value.aside?.level || config.value.aside?.include?.length > 0))
 
 const links = useLinks()
 

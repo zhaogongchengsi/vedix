@@ -7,7 +7,7 @@ export default defineAppConfig({
       github: 'https://github.com/zhaogongchengsi/vedix',
     },
     aside: {
-      level: 1,
+      level: 0,
       exclude: [],
       include: [{
             path: '/examples',
@@ -18,7 +18,11 @@ export default defineAppConfig({
     },
     header: {
       logo: true,
-      showLinkIcon: true
+      showLinkIcon: true,
+      fluid: true
+    },
+    main: {
+      fluid: true
     },
     footer: {
       textLinks: [
