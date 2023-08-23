@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import HeaderNavigation from "~/components/HeaderNavigation.vue";
-
 const { config } = useDocus()
 const { navigation } = useContent()
 const { hasDocSearch } = useDocSearch()
-
 const hasDialog = computed(() => navigation.value?.length > 1 || navigation.value?.[0]?.children?.length)
 
 </script>
@@ -16,11 +13,11 @@ const hasDialog = computed(() => navigation.value?.length > 1 || navigation.valu
         <AppHeaderDialog v-if="hasDialog" />
         <AppHeaderLogo class="hidden! lg:block!" />
       </div>
-      <div class="col-span-4 lg:hidden flex items-center justify-center">
+      <div class="col-span-4 flex items-center justify-center">
         <AppHeaderLogo v-if="hasDialog" class="block! lg:hidden!" />
+        <AppHeaderNavigation />
       </div>
-      <div class="col-span-4 lg:col-span-8 flex items-center justify-end gap-1">
-        <HeaderNavigation class="hidden lg:block" />
+      <div class="col-span-4 flex items-center justify-end gap-1">
         <AppDocSearch v-if="hasDocSearch" />
         <AppSearch
           v-else
@@ -30,9 +27,6 @@ const hasDialog = computed(() => navigation.value?.length > 1 || navigation.valu
         <div class="flex items-center">
           <AppSocialIcons />
         </div>
-        <button class="p-3 text-[var(--color-gray-200)] flex justify-center items-center lg:hidden" aria-label="Nav Menu">
-          <Icon class="text-5" name="tabler:menu-2" />
-        </button>
       </div>
     </Container>
   </header>

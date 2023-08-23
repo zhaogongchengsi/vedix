@@ -6,23 +6,19 @@ export default defineAppConfig({
     socials: {
       github: 'https://github.com/zhaogongchengsi/vedix',
     },
-    nav: [
-      { text: 'Guide', link: '/guide' },
-      {
-        text: 'Dropdown Menu',
-        items: [
-          { text: 'Item A', link: '/item-1' },
-          { text: 'Item B', link: '/item-2' },
-          { text: 'Item C', link: '/item-3' }
-        ]
-      }
-    ],
     aside: {
-      level: 0,
-      exclude: []
+      level: 1,
+      exclude: [],
+      include: [{
+            path: '/examples',
+            icon: 'heroicons-outline:play',
+            title: 'Examples'
+      }],
+      collapsed: true
     },
     header: {
       logo: true,
+      showLinkIcon: true
     },
     footer: {
       textLinks: [
