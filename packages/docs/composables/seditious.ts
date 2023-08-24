@@ -2,26 +2,22 @@ import { isClient } from '@vueuse/core'
 
 export function seditious (initName: string = '') {
 
+	const element = isClient ? document.documentElement : null
+
 	if (isClient) {
-		initName != '' && document.body.classList.add(initName)
+		initName != '' && element && element.classList.add(initName)
 	}
 
 	const setName = (name: string) => {
-		if (isClient) {
-			document.body.classList.add(name)
-		}
+			element && element.classList.add(name)
 	}
 
 	const trigger  = (name: string) => {
-		if (isClient) {
-			document.body.classList.toggle(name)
-		}
+			element && element.classList.toggle(name)
 	}
 
 	const removeName = (name: string) => {
-		if (isClient) {
-			document.body.classList.remove(name)
-		}
+			element && element.classList.remove(name)
 	}
 
 	return {
