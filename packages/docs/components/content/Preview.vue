@@ -7,10 +7,9 @@ defineProps<{name: string}>()
 <template>
   <div class="w-full">
     <div>
-      <component :is="`ui-${name}`" />
+      <component :is="`vedix-${name}`">
+        <slot />
+      </component>
     </div>
-    <ui-avatar src="https://github.com/shadcn.png" />
-
-    <slot />
   </div>
 </template>

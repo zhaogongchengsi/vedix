@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+
 defineOptions({
   name: 'VButton',
   inheritAttrs: true,
@@ -11,11 +12,13 @@ withDefaults(
     size: 'default',
   },
 )
+
 </script>
 
 <template>
   <button
-    class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" :class="[
+    :class="[
+      'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50', 
       {
         'bg-primary text-primary-foreground shadow hover:bg-primary/90': variant === 'default',
         'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90': variant === 'destructive',
@@ -27,7 +30,7 @@ withDefaults(
         'h-8 rounded-md px-3 text-xs': size === 'sm',
         'h-10 rounded-md px-8': size === 'lg',
         'h-9 w-9': size === 'icon',
-      },
+      }
     ]"
   >
     <slot />

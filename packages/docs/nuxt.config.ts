@@ -4,6 +4,9 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@unocss/nuxt',
   ],
+  components: [
+    { path: '~/components/ui', global: true, prefix: 'vedix' }
+  ],
   devtools: {
     enabled: true,
   },

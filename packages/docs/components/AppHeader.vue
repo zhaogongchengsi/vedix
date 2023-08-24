@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import {seditious} from "~/composables/seditious";
+
 const { config } = useDocus()
 const { navigation } = useContent()
 const { hasDocSearch } = useDocSearch()
 const hasDialog = computed(() => navigation.value?.length > 1 || navigation.value?.[0]?.children?.length)
-
+seditious('slate-theme')
 </script>
 
 <template>
