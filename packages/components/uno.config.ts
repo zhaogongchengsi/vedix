@@ -5,7 +5,7 @@ import {
   presetUno,
   presetWebFonts,
 } from 'unocss'
-import parseVedix from 'vedix-unocss-preset'
+import { parseVedix } from 'vedix-unocss-preset'
 
 export default defineConfig({
   shortcuts: [],

@@ -5,7 +5,11 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build:doc": "pnpm --filter vedix-docs run build"
+    "build:cli": "pnpm --filter vedix run build",
+    "build:comp": "pnpm --filter vedix-components run build",
+    "build:preset": "pnpm --filter vedix-unocss-preset run build",
+    "build": "pnpm run build:preset && pnpm run build:comp && pnpm run build:cli",
+    "build:doc": "pnpm run build && pnpm --filter vedix-docs run build"
   },
   "packageManager": "pnpm@7.12.0",
   "keywords": [],

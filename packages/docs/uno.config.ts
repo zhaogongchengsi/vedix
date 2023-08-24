@@ -6,7 +6,7 @@ import {
     transformerDirectives,
     transformerVariantGroup
 } from 'unocss'
-import  presetVedix ,{ slate } from 'vedix-unocss-preset'
+import { slate, presetVedix } from 'vedix-unocss-preset'
 
 export default defineConfig({
     presets: [

@@ -50,7 +50,7 @@ export interface PresetVedixOptions {
 
 const defaultOptions: PresetVedixOptions = { theme: slate, extend: true, darkSelector: '.dark' }
 
-export default function presetVedix(options: PresetVedixOptions = defaultOptions) {
+function presetVedix(options: PresetVedixOptions = defaultOptions) {
   const _options = Object.assign({}, defaultOptions, options)
   const extend = _options.extend || true
 
@@ -73,4 +73,8 @@ export default function presetVedix(options: PresetVedixOptions = defaultOptions
       },
     ],
   }
+}
+
+export {
+  presetVedix,
 }
