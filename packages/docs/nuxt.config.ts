@@ -10,7 +10,14 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  devServer:{
+  app: {
+    head: {
+      script: [
+        { src: '/theme.js' }
+      ],
+    }
+  },
+  devServer: {
     port: 4567,
   },
   experimental: {
