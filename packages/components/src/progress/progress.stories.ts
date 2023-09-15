@@ -18,6 +18,6 @@ export const Default: Story = {
         value,
       }
     },
-    template: '<Progress v-model="value" />',
+    template: '<div class="w-1/2 mx-auto"> <Progress v-model="value" /> </div>',
   }),
 }

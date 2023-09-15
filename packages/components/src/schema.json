@@ -11,7 +11,7 @@
       "type": "array"
     },
     "file": {
-      "type": "string"
+      "type": ["string", "object"]
     }
   },
   "required": ["file", "name"]

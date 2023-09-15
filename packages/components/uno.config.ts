@@ -5,10 +5,20 @@ import {
   presetUno,
   presetWebFonts,
 } from 'unocss'
-import { presetVedix } from 'vedix-unocss-preset'
+import { presetVedix, slate } from 'vedix-unocss-preset'
 
 export default defineConfig({
   shortcuts: [],
+  content: {
+    pipeline: {
+      include: [
+        // 默认配置
+        /\.(vue|mdx)($|\?)/,
+        // 包括 js/ts 文件
+        'src/**/*stories.{js,ts}',
+      ],
+    },
+  },
   presets: [
     presetUno(),
     presetAttributify(),
@@ -23,6 +33,6 @@ export default defineConfig({
         mono: 'DM Mono',
       },
     }),
-    presetVedix(),
+    presetVedix({ theme: slate }),
   ],
 })

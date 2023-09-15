@@ -2,7 +2,7 @@ import { mergeConfig } from "vite";
 import UnoCSS from "unocss/vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { presetUno } from 'unocss'
-import vedixPreset from 'vedix-unocss-preset'
+import { slate, presetVedix } from 'vedix-unocss-preset'
 
 const config = {
     stories: [
@@ -26,13 +26,7 @@ const config = {
 
         return mergeConfig(config, {
             plugins: [
-                UnoCSS({
-                    presets: [
-                        presetUno(),
-                        // @ts-ignore
-                        vedixPreset()
-                    ]
-                }),
+                UnoCSS(),
                 vueJsx()
             ]
         })

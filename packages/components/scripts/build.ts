@@ -8,7 +8,7 @@ import { consola } from 'consola'
 
 interface Meta {
   name: string
-  file: string
+  file: string | Record<string, string>
   private?: boolean
   dependence?: string[]
   dir: string
