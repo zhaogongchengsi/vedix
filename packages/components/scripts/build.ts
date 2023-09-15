@@ -5,10 +5,19 @@ import { globby } from 'globby'
 import { outputFile } from 'fs-extra'
 import { normalize } from 'pathe'
 import { consola } from 'consola'
+import { pascalCase } from 'scule'
 
 interface Meta {
   name: string
   file: string | Record<string, string>
+  private?: boolean
+  dependence?: string[]
+  dir: string
+}
+
+interface ComponentsMeta {
+  name: string
+  file: string
   private?: boolean
   dependence?: string[]
   dir: string
@@ -32,7 +41,7 @@ const [dir] = process.argv.slice(2);
   const distIndexCjs = join(cwd, dir, 'index.cjs')
 
   for (const { meta, content } of list) {
-    if (!meta.name || /[-,^\d]/gm.test(meta.name)) {
+    if (!meta.name || /^\d/gm.test(meta.name)) {
       consola.error(`error: ${meta.name} contains illegal string`)
       continue
     }
@@ -41,14 +50,14 @@ const [dir] = process.argv.slice(2);
 
     exportList.push({ name: meta.name, dependence: meta.dependence, file: parse(meta.file).base })
 
-    indexM.push(`import ${meta.name} from "./${normalize(relative(distIndexMjs, mjs)).substring(3)}";`)
-    indexC.push(`const ${meta.name} = require("./${normalize(relative(distIndexCjs, cjs)).substring(3)}");`)
+    indexM.push(`import ${pascalCase(meta.name)} from "./${normalize(relative(distIndexMjs, mjs)).substring(3)}";`)
+    indexC.push(`const ${pascalCase(meta.name)} = require("./${normalize(relative(distIndexCjs, cjs)).substring(3)}");`)
     await outputFile(mjs, createMjsCode(content))
     await outputFile(cjs, createCjsCode(content))
   }
 
   const code = exportList.map(({ name, dependence, file }) => {
-    return `  ['${name}' ,{ file: '${file}', code: ${name} ${dependence ? `, dependence: [${dependence.map(dep => `'${dep}'`).join(',')}]` : ''}}]`
+    return `  ['${name}' ,{ file: '${file}', code: ${pascalCase(name)} ${dependence ? `, dependence: [${dependence.map(dep => `'${dep}'`).join(',')}]` : ''}}]`
   }).join(',\n')
 
   await outputFile(distIndexMjs, `${indexM.join('\n')}\n\n\n` + `export default new Map([\n${code}\n])`)
@@ -65,7 +74,7 @@ function createCjsCode(code: string) {
   return `module.exports = \`${code}\``
 }
 
-function createFileInfo(meta: Meta) {
+function createFileInfo(meta: ComponentsMeta) {
   const path = join(cwd, dir)
 
   const name = parse(meta.file).name
@@ -77,18 +86,37 @@ function createFileInfo(meta: Meta) {
 }
 
 async function readComponentFile(metas: Meta[]) {
-  const components: { meta: Meta; content: string; filename: string }[] = []
+  const components: { meta: ComponentsMeta; content: string; filename: string }[] = []
 
   for (const meta of metas) {
     const { file, dir } = meta
-    const component = join(dir, file)
-    const content = (await readFile(component)).toString()
-
-    components.push({
-      meta,
-      content,
-      filename: parse(component).name,
-    })
+    if (typeof file === 'string') {
+      const component = join(dir, file)
+      const content = (await readFile(component)).toString()
+      components.push({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        meta,
+        content,
+        filename: parse(component).name,
+      })
+    }
+    else {
+      for (const [name, path] of Object.entries(file)) {
+        const component = join(dir, path)
+        const content = (await readFile(component)).toString()
+        const _meta = {
+          ...meta,
+          file: path,
+          name,
+        }
+        components.push({
+          meta: _meta,
+          content,
+          filename: name,
+        })
+      }
+    }
   }
 
   return components
@@ -105,7 +133,7 @@ async function readMeta() {
   for (const path of componentMeta) {
     const meta = (await readJson(path)) as Meta
 
-    if (meta.private === undefined || meta.private === false) {
+    if (meta.private === undefined || !meta.private) {
       const { dir } = parse(path)
 
       metaList.push({

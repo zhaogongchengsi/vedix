@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Progress",
+  "name": "Tabs",
   "file": {
     "tabs": "./tabs.vue",
     "tabs-list": "./tabs-list.vue",
