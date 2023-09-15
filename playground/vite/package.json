@@ -9,7 +9,8 @@
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest",
-    "up": "taze major -I"
+    "up": "taze major -I",
+    "add-com": "vedix add"
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",

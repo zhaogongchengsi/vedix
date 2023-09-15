@@ -1,6 +1,7 @@
 
 declare interface Component {
-	file: string, code: string, dependence?: string[]
+	content: string | Record<string, string>;
+	dependence?: string[]
 }
 
 declare const Components = new Map<string, Component>()

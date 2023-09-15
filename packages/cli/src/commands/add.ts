@@ -33,25 +33,36 @@ export default defineCommand({
     // TODO: 配置文件不存在会报错
     const config = await readConfig(join(root, CONFIG_NAME))
 
-    const { code, file, dependence } = components.get(name)!
+    const { content, dependence } = components.get(name)!
 
-    const componentPath = join(root, config.components, file)
+    const componentExistsSync = async (path: string) => {
+      if (existsSync(path)) {
+        const { isOverlay } = await prompts({
+          type: 'toggle',
+          message: colors.yellowBright(`Whether the ${name} component already exists or not overrides`),
+          name: 'isOverlay',
+          initial: false,
+          active: colors.red('yes'),
+          inactive: colors.cyan('no'),
+        })
 
-    if (existsSync(componentPath)) {
-      const { isOverlay } = await prompts({
-        type: 'toggle',
-        message: colors.yellowBright(`Whether the ${name} component already exists or not overrides`),
-        name: 'isOverlay',
-        initial: true,
-        active: colors.red('yes'),
-        inactive: colors.cyan('no'),
-      })
-
-      if (!isOverlay)
-        process.exit(1)
+        if (!isOverlay)
+          process.exit(1)
+      }
     }
 
-    await outputFile(componentPath, code)
+    if (typeof content === 'string') {
+      const componentPath = join(root, config.components, `${name}.vue`)
+      await componentExistsSync(componentPath)
+      await outputFile(componentPath, content)
+    }
+    else if (typeof content === 'object') {
+      for (const [cname, _content] of Object.entries(content)) {
+        const componentPath = join(root, config.components, name, `${cname}.vue`)
+        await componentExistsSync(componentPath)
+        await outputFile(componentPath, _content)
+      }
+    }
 
     if (!dependence || dependence.length < 1)
       return
