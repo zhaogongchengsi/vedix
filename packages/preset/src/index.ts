@@ -1,4 +1,9 @@
-import { generateTheme } from './theme'
+import * as dark from './colors/dark'
+import * as darkAlpha from './colors/dark-alpha'
+import * as light from './colors/light'
+import * as lightAlpha from './colors/light-alpha'
+import { blackA } from './colors/blackA'
+import { whiteA } from './colors/whiteA'
 
 export interface PresetVedixOptions {
   theme: string
@@ -22,23 +27,27 @@ function presetVedix(options: PresetVedixOptions = defaultOptions) {
   const _options = Object.assign({}, defaultOptions, options)
   const extend = _options.extend || true
 
-  const { borderRadius, boxShadow, screens, fontSize, fontWeight, lineHeight, letterSpacing, spacing } = generateTheme()
+  const colors = Object.fromEntries(Object.entries(light).map(([name, color]) => {
+    return [name, {
+      ...color,
+      alpha: Reflect.get(lightAlpha, name),
+      dark: {
+        ...Reflect.get(dark, name),
+        alpha: Reflect.get(darkAlpha, name)
+      }
+    }]
+  }))
 
   return {
     name: 'unocss-preset-vedix',
-    // extendTheme(theme: Record<string, any>) {
-    //   theme.colors = {
-    //     ...(extend && theme.colors),
-    //   }
-    //   theme.borderRadius = borderRadius
-    //   theme.boxShadow = boxShadow
-    //   theme.screens = screens
-    //   theme.fontSize = fontSize
-    //   theme.fontWeight = fontWeight
-    //   theme.lineHeight = lineHeight
-    //   theme.letterSpacing = letterSpacing
-    //   theme.spacing = spacing
-    // },
+    extendTheme(theme: Record<string, any>) {
+      theme.colors = {
+        ...(extend && theme.colors),
+        black: blackA,
+        white: whiteA,
+        ...colors,
+      }
+    },
     // preflights: [
     //   {
     //     getCSS: () => genCss(_options),

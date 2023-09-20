@@ -203,6 +203,9 @@ importers:
 
   packages/preset:
     dependencies:
+      '@unocss/core':
+        specifier: ^0.56.0
+        version: 0.56.0
       scule:
         specifier: ^1.0.0
         version: 1.0.0
@@ -6421,6 +6424,10 @@ packages:
   /@unocss/core@0.55.7:
     resolution: {integrity: sha512-c+bWe844Xjlwc1EPwHj0+n3LpntJG7ELPbEOOxNIG+CQdcEX0l1G0rkM8+nKstJ9WJmgpf1HdJQLVMF62HXvhw==}
     dev: true
+
+  /@unocss/core@0.56.0:
+    resolution: {integrity: sha512-KpaEMCg5XnTK7aQRgwNWoPCAFLEmPGjw+OSZWuMtkGvMr4RwDAVUAqPdGyGOavKMyWs+Is+lxXL5NHy9nhZ2oA==}
+    dev: false
 
   /@unocss/eslint-config@0.53.0(eslint@8.47.0)(typescript@5.1.6):
     resolution: {integrity: sha512-BGxBRiMdaI5UcCVPF9Cn5bJ7v9XeHHOJiEKb+3zereHOXD0f0bVMdUTG5hE8aqXDNSWE0CyqFcWUddDXhlfPFg==}

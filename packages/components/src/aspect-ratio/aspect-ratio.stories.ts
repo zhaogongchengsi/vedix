@@ -16,7 +16,7 @@ export const Default: Story = {
       return { args }
     },
     template: `<aspect-ratio v-bind="args" style="width: 250px" > 
-            <img src="https://images.unsplash.com/photo-1604156788872-fa65cd2575f5?w=600&dpr=2&q=80" /> 
+            <img src="https://images.unsplash.com/photo-1604156788872-6005cd2575f5?w=600&dpr=2&q=80" /> 
         </aspect-ratio>`,
   }),
   args: {

@@ -47,6 +47,7 @@
     "unbuild": "^1.2.1"
   },
   "dependencies": {
+    "@unocss/core": "^0.56.0",
     "scule": "^1.0.0"
   }
 }
