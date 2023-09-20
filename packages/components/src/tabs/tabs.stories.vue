@@ -25,7 +25,3 @@ import tabsContent from './tabs-content.vue'
     </tabs>
   </div>
 </template>
-
-<style scoped>
-
-</style>

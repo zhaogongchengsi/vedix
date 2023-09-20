@@ -4,7 +4,7 @@
   "packageManager": "pnpm@8.6.0",
   "description": "",
   "author": "zhaozunhong <zzh1586169624@163.com>",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [],
   "exports": {
     ".": {
@@ -14,6 +14,7 @@
     }
   },
   "main": "dist/index.mjs",
+  "types": "./types.d.ts",
   "files": [
     "dist",
     "types.d.ts"

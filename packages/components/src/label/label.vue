@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type LabelRef, OkuLabel } from '@oku-ui/label'
+import { OkuLabel } from '@oku-ui/label'
 import { ref } from 'vue'
 
 defineOptions({
@@ -7,7 +7,7 @@ defineOptions({
   inheritAttrs: true,
 })
 
-const labelRef = ref<LabelRef>()
+const labelRef = ref<typeof OkuLabel>()
 
 defineExpose({
   labelRef,

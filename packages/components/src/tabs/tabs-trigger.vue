@@ -9,7 +9,3 @@ defineProps<{ asChild?: boolean; disabled?: boolean; value?: string }>()
     <slot />
   </OkuTabsTrigger>
 </template>
-
-<style scoped>
-
-</style>
