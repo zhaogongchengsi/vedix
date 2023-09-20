@@ -29,6 +29,6 @@ export default defineConfig({
         mono: 'DM Mono',
       },
     }),
-    presetVedix({ theme: slate }),
+    presetVedix(),
   ],
 })

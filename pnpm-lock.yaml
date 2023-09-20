@@ -202,6 +202,10 @@ importers:
         version: link:../preset
 
   packages/preset:
+    dependencies:
+      scule:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       unbuild:
         specifier: ^1.2.1
@@ -16250,7 +16254,6 @@ packages:
 
   /scule@1.0.0:
     resolution: {integrity: sha512-4AsO/FrViE/iDNEPaAQlb77tf0csuq27EsVpy6ett584EcRTp6pTDLoGWVxCD77y5iU5FauOvhsI4o1APwPoSQ==}
-    dev: true
 
   /seek-bzip@1.0.6:
     resolution: {integrity: sha512-e1QtP3YL5tWww8uKaOCQ18UxIT2laNBXHjV/S2WYCiK4udiv8lkG89KRIoCjUagnAmCBurjF4zEVX2ByBbnCjQ==}

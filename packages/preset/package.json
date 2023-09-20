@@ -45,5 +45,8 @@
   "license": "ISC",
   "devDependencies": {
     "unbuild": "^1.2.1"
+  },
+  "dependencies": {
+    "scule": "^1.0.0"
   }
 }

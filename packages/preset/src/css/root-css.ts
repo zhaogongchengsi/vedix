@@ -1,0 +1,92 @@
+export const root = `
+  --tomato-9-contrast: white;
+  --red-9-contrast: white;
+  --ruby-9-contrast: white;
+  --crimson-9-contrast: white;
+  --pink-9-contrast: white;
+  --plum-9-contrast: white;
+  --purple-9-contrast: white;
+  --violet-9-contrast: white;
+  --iris-9-contrast: white;
+  --indigo-9-contrast: white;
+  --blue-9-contrast: white;
+  --cyan-9-contrast: white;
+  --teal-9-contrast: white;
+  --jade-9-contrast: white;
+  --green-9-contrast: white;
+  --grass-9-contrast: white;
+  --orange-9-contrast: white;
+  --brown-9-contrast: white;
+  --sky-9-contrast: hsl(210, 12%, 12.5%); /* light mode slate 12 */
+  --mint-9-contrast: hsl(155, 12%, 11.5%); /* light mode sage 12 */
+  --lime-9-contrast: hsl(110, 8%, 12%); /* light mode olive 12 */
+  --yellow-9-contrast: hsl(50, 8%, 12%); /* light mode sand 12 */
+  --amber-9-contrast: hsl(50, 8%, 12%); /* light mode sand 12 */
+  --gold-9-contrast: white;
+  --bronze-9-contrast: white;
+  --gray-9-contrast: white;
+
+
+  --tomato-surface: var(--tomato-a2);
+  --red-surface: var(--red-a2);
+  --ruby-surface: var(--ruby-a2);
+  --crimson-surface: var(--crimson-a2);
+  --pink-surface: var(--pink-a2);
+  --plum-surface: var(--plum-a2);
+  --purple-surface: var(--purple-a2);
+  --violet-surface: var(--violet-a2);
+  --iris-surface: var(--iris-a2);
+  --indigo-surface: var(--indigo-a2);
+  --blue-surface: var(--blue-a2);
+  --cyan-surface: var(--cyan-a2);
+  --teal-surface: var(--teal-a2);
+  --jade-surface: var(--jade-a2);
+  --green-surface: var(--green-a2);
+  --grass-surface: var(--grass-a2);
+  --orange-surface: var(--orange-a2);
+  --brown-surface: var(--brown-a2);
+  --sky-surface: var(--sky-a2);
+  --mint-surface: var(--mint-a2);
+  --lime-surface: var(--lime-a2);
+  --yellow-surface: var(--yellow-a2);
+  --amber-surface: var(--amber-a2);
+  --gold-surface: var(--gold-a2);
+  --bronze-surface: var(--bronze-a2);
+  --gray-surface: white;
+`.trim()
+
+export const dark = `
+  --tomato-surface: var(--tomato-a2);
+  --red-surface: var(--red-a2);
+  --ruby-surface: var(--ruby-a2);
+  --crimson-surface: var(--crimson-a2);
+  --pink-surface: var(--pink-a2);
+  --plum-surface: var(--plum-a2);
+  --purple-surface: var(--purple-a2);
+  --violet-surface: var(--violet-a2);
+  --iris-surface: var(--iris-a2);
+  --indigo-surface: var(--indigo-a2);
+  --blue-surface: var(--blue-a2);
+  --cyan-surface: var(--cyan-a2);
+  --teal-surface: var(--teal-a2);
+  --jade-surface: var(--jade-a2);
+  --green-surface: var(--green-a2);
+  --grass-surface: var(--grass-a2);
+  --orange-surface: var(--orange-a2);
+  --brown-surface: var(--brown-a2);
+  --sky-surface: var(--sky-a2);
+  --mint-surface: var(--mint-a2);
+  --lime-surface: var(--lime-a2);
+  --yellow-surface: var(--yellow-a2);
+  --amber-surface: var(--amber-a2);
+  --gold-surface: var(--gold-a2);
+  --bronze-surface: var(--bronze-a2);
+  --gray-surface: var(--gray-a2);
+
+  --gray-2-translucent: rgba(29, 29, 29, 0.7);
+  --mauve-2-translucent: rgba(32, 27, 33, 0.7);
+  --slate-2-translucent: rgba(29, 29, 33, 0.7);
+  --sage-2-translucent: rgba(24, 30, 27, 0.7);
+  --olive-2-translucent: rgba(26, 30, 26, 0.7);
+  --sand-2-translucent: rgba(29, 29, 26, 0.7);
+`.trim()
