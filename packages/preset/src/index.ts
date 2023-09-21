@@ -27,6 +27,12 @@ function presetVedix(options: PresetVedixOptions = defaultOptions) {
   const _options = Object.assign({}, defaultOptions, options)
   const extend = _options.extend || true
 
+  /*
+   *  text-red-200
+   *  text-red-alpha-200
+   *  text-red-dark-200
+   *  text-red-dark-alpha-200
+   */
   const colors = Object.fromEntries(Object.entries(light).map(([name, color]) => {
     return [name, {
       ...color,
