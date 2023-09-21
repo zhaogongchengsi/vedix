@@ -23,6 +23,27 @@ export interface PresetVedixOptions {
 
 const defaultOptions: PresetVedixOptions = { theme: 'all', extend: true, darkSelector: 'dark' }
 
+function genCss(options: PresetVedixOptions) {
+
+  const formate = (name: string, colors: Record<string | number, string>) => {
+    return Object.entries(colors).map(([lev, color]) => {
+      return `--${name}-${lev}: ${color};`
+    })
+  }
+
+  const css = [
+    formate('black', blackA),
+    Object.entries(light).map(([name, color]) => {
+      return formate(name, color)
+    }).flat(),
+    Object.entries(lightAlpha).map(([name, color]) => {
+      return formate(`${name}-alpha`, color)
+    }).flat()
+  ].flat().join(';')
+
+  return `:root {\n${css}\n}`
+}
+
 function presetVedix(options: PresetVedixOptions = defaultOptions) {
   const _options = Object.assign({}, defaultOptions, options)
   const extend = _options.extend || true
@@ -54,11 +75,11 @@ function presetVedix(options: PresetVedixOptions = defaultOptions) {
         ...colors,
       }
     },
-    // preflights: [
-    //   {
-    //     getCSS: () => genCss(_options),
-    //   },
-    // ],
+    preflights: [
+      {
+        getCSS: () => genCss(options),
+      },
+    ],
   }
 }
 
