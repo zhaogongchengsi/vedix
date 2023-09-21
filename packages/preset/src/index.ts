@@ -33,6 +33,7 @@ function genCss(options: PresetVedixOptions) {
 
   const css = [
     formate('black', blackA),
+    formate('white', whiteA),
     Object.entries(light).map(([name, color]) => {
       return formate(name, color)
     }).flat(),
@@ -41,7 +42,16 @@ function genCss(options: PresetVedixOptions) {
     }).flat()
   ].flat().join(';')
 
-  return `:root {\n${css}\n}`
+  const darkCss = [
+    Object.entries(dark).map(([name, color]) => {
+      return formate(`${name}`, color)
+    }).flat(),
+    Object.entries(darkAlpha).map(([name, color]) => {
+      return formate(`${name}-alpha`, color)
+    }).flat()
+  ].flat().join(';')
+
+  return `:root {\n${css}\n} .${options.darkSelector} {\n${darkCss}\n}`
 }
 
 function presetVedix(options: PresetVedixOptions = defaultOptions) {
